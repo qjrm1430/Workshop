@@ -30,7 +30,7 @@
 
 #### 웜 캐시(Warm Cache) 의존성 해결
 
-캐시는 있지만 잠금 파일이 없는 상태에서, 의존성 관계를 처음부터 다시 분석하는 경우입니다.
+캐시는 있지만 잠금 파일이 없는 상태에서, 의존성 관계를 처음부터 다시 분석하는 경우입니다.****
 
 ![Warm Resolution](https://github.com/user-attachments/assets/e1637a08-8b27-4077-8138-b3849e53eb04)
 
@@ -42,5 +42,4 @@
 
 ---
 
--   **출처**: [uv 공식 벤치마크 문서](https://github.com/astral-sh/uv/blob/main/BENCHMARKS.md)
-
+- **출처**: [uv 공식 벤치마크 문서](https://github.com/astral-sh/uv/blob/main/BENCHMARKS.md)

@@ -1,0 +1,49 @@
+# 이 파일은 일반적인 Python 웹 애플리케이션의 pyproject.toml 설정 예제입니다.
+# uv와 ruff의 설정을 함께 포함하고 있습니다.
+
+# --- 1. Python 프로젝트 표준 메타데이터 ---
+[project]
+name = "my-fastapi-app"
+version = "0.1.0"
+description = "A FastAPI application with uv and ruff."
+requires-python = ">=3.9"
+
+# 애플리케이션 실행에 필요한 프로덕션 의존성입니다.
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+]
+
+# --- 2. `uv` 개발용 의존성 그룹 ---
+# `pytest`, `ruff` 등 개발에만 필요한 패키지들을 관리합니다.
+[tool.uv.dev-dependencies]
+dependencies = [
+    "pytest",
+    "httpx", # API 클라이언트 테스트용
+]
+
+# --- 3. `Ruff` Linter 및 Formatter 설정 ---
+[tool.ruff]
+# 프로젝트 전체에 적용될 공통 설정
+line-length = 88 # Black과 동일한 라인 길이
+target-version = "py39" # 대상 파이썬 버전을 3.9로 지정
+
+# 검사에서 제외할 파일/디렉터리 목록
+exclude = [".venv", "build", "dist"]
+
+[tool.ruff.lint]
+# 사용하지 않는 import(F), 기본적인 Pyflakes(F) 규칙과
+# isort(I) 규칙 (import 정렬), flake8-bugbear(B) 규칙(잠재적 버그 감지)을 활성화합니다.
+select = ["F", "E", "W", "I", "B"]
+
+# 길이 제한(E501)은 formatter가 담당하므로 linter에서는 무시하고,
+# 버그베어의 '함수 호출 시 기본값으로 list, dict 사용' 경고(B006)는 무시합니다.
+ignore = ["E501", "B006"]
+
+[tool.ruff.lint.per-file-ignores]
+# 테스트 코드에서는 assert 문(S101) 사용을 허용합니다.
+"tests/*" = ["S101"]
+
+[tool.ruff.format]
+# Black과 유사하게 큰따옴표를 사용합니다.
+quote-style = "double"

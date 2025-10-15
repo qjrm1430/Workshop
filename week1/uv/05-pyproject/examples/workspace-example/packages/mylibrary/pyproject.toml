@@ -1,0 +1,17 @@
+# 04-workspace-example/packages/mylibrary/pyproject.toml (멤버)
+
+# 이 파일은 워크스페이스에 포함되는 개별 멤버 패키지의 `pyproject.toml` 입니다.
+# 루트 프로젝트와 마찬가지로 자신만의 메타데이터와 의존성을 가질 수 있습니다.
+
+[project]
+# 워크스페이스 멤버의 이름입니다. 루트의 `dependencies`에서 이 이름을 사용합니다.
+name = "my-core-library"
+version = "0.1.0"
+requires-python = ">=3.9"
+description = "A core library for my-monorepo-app."
+
+# 이 라이브러리 자체의 의존성입니다.
+# 이 의존성은 워크스페이스 전체의 단일 uv.lock 파일에 함께 관리됩니다.
+dependencies = [
+    "pydantic",
+]

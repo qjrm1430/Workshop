@@ -1,0 +1,36 @@
+# 03-custom-groups.toml
+
+# 이 파일은 'dev' 그룹 외에 사용자가 직접 정의한 커스텀 의존성 그룹을
+# 사용하는 방법을 보여줍니다. 이는 프로젝트의 특정 부분(예: 문서 빌드, 테스트)에만
+# 필요한 의존성을 체계적으로 관리할 수 있게 해줍니다.
+
+[project]
+name = "my-data-science-project"
+version = "0.1.0"
+description = "A data science project with custom dependency groups."
+requires-python = ">=3.10"
+
+# 데이터 분석 및 모델링에 필요한 핵심 의존성입니다.
+dependencies = [
+    "pandas",
+    "scikit-learn",
+    "matplotlib",
+]
+
+# [tool.uv.dev-dependencies] 외에도 `[tool.uv.dependencies.{group-name}]` 형태로
+# 자유롭게 그룹을 추가할 수 있습니다.
+# `uv add --group <group-name> <package>` 명령어로 패키지를 추가할 수 있습니다.
+
+[tool.uv.dependencies.docs]
+# 문서 빌드(예: Sphinx)에 필요한 의존성 그룹입니다.
+dependencies = [
+    "sphinx",
+    "sphinx-rtd-theme",
+]
+
+[tool.uv.dependencies.test]
+# 테스트 실행에 필요한 의존성 그룹입니다.
+dependencies = [
+    "pytest",
+    "pytest-cov",
+]

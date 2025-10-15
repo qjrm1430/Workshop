@@ -1,0 +1,25 @@
+# 01-basic-project.toml
+
+# 이 파일은 가장 기본적인 pyproject.toml 구조를 보여줍니다.
+# [project] 테이블에는 PEP 621 표준에 따른 프로젝트 메타데이터가 포함됩니다.
+
+[project]
+# 필수: PyPI에 배포될 프로젝트의 이름입니다.
+name = "my-basic-app"
+
+# 필수: 현재 프로젝트의 버전입니다.
+version = "0.1.0"
+
+# 선택: 프로젝트에 대한 간략한 설명입니다.
+description = "A basic Python application managed with uv."
+
+# 선택: 프로젝트가 지원하는 최소 파이썬 버전을 명시합니다.
+# 이 설정을 통해 `uv`는 호환되는 파이썬 인터프리터를 찾아 사용합니다.
+requires-python = ">=3.9"
+
+# 선택: 프로젝트의 메인 의존성 패키지 목록입니다.
+# `uv add <package>` 명령어를 사용하면 이 목록에 자동으로 추가됩니다.
+dependencies = [
+    "requests>=2.30.0", # 특정 버전 이상을 요구
+    "rich",             # 버전 명시 없이 최신 버전을 사용
+]

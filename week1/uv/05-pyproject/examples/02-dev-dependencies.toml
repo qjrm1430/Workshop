@@ -1,0 +1,25 @@
+# 02-dev-dependencies.toml
+
+# 이 파일은 프로덕션 의존성과 개발용 의존성을 분리하여 관리하는 방법을 보여줍니다.
+
+[project]
+name = "my-web-api"
+version = "1.0.0"
+description = "A web API project with separate development dependencies."
+requires-python = ">=3.9"
+
+# 애플리케이션 실행에 직접적으로 필요한 프로덕션 의존성입니다.
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+]
+
+# [tool.uv.dev-dependencies] 테이블은 `uv`의 고유 기능으로,
+# 오직 개발 환경에서만 필요한 패키지들을 관리하는 데 사용됩니다.
+# 여기에 명시된 패키지들은 `uv add --dev <package>`를 통해 추가할 수 있습니다.
+[tool.uv.dev-dependencies]
+dependencies = [
+    "pytest",  # 테스트 실행용
+    "ruff",    # 린팅 및 포맷팅용
+    "mypy",    # 정적 타입 검사용
+]

@@ -1,0 +1,15 @@
+[project]
+name = "week3-workshop-env"
+version = "0.1.0"
+requires-python = ">=3.9"
+
+[tool.ruff]
+line-length = 88
+indent-style = "space"
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I", "B"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
